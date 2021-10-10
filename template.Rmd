@@ -80,5 +80,12 @@ final
 
 ##Q3
 ```{r}
-
+q3a_df = read_csv("data/Popular_Baby_Names.csv")
+q3a_df = janitor::clean_names(q3a_df)
+q3a_df = distinct(q3a_df)
+Olivia_df = filter(q3a_df, childs_first_name=="Olivia")
+Olivia_df
+q3c_df = filter(q3a_df, gender == "MALE", ethnicity == "WHITE NON HISPANIC", year_of_birth == 2016)
+q3c_df
+ggplot(q3c_df, aes(x = rank, y = childs_first_name))+ geom_point()
 ```
